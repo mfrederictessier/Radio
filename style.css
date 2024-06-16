@@ -15,7 +15,7 @@ body {
 
 .radio-player {
     text-align: center;
-    margin: 20px;
+    
 }
 
 .controls {
@@ -23,15 +23,13 @@ body {
 }
 
 button {
-    margin: 0 5px;
-    padding: 5px 10px;
+    
     font-size: 14px;
     cursor: pointer;
+    width: 40px;
+    
 }
 
-input[type="range"] {
-    vertical-align: middle;
-}
 
 .station-list {
     list-style-type: none;
@@ -283,7 +281,7 @@ input[type="range"] {
     border-radius: 5px;
     transition: background-color 0.3s;
     font-size: 18px;
-    height: 70px;
+    height: 50px;
     margin-bottom: 10px;
 }
 
@@ -310,3 +308,4 @@ input[type="range"] {
     border-radius: 10px;
     border: 1.2px solid #7a7a7a;
 }
+

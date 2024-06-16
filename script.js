@@ -386,26 +386,46 @@ const playButton = document.getElementById('playButton');
 const pauseButton = document.getElementById('pauseButton');
 const stopButton = document.getElementById('stopButton');
 const volumeSlider = document.getElementById('volumeSlider');
+const playIndicator = document.getElementById('playIndicator');
 
 // Ajouter des événements aux boutons
 toggleControlsButton.addEventListener('click', () => {
     audioPlayer.controls = !audioPlayer.controls;
-    toggleControlsButton.textContent = audioPlayer.controls ? 'Hide Controls' : 'Show Controls';
+    toggleControlsButton.innerHTML = audioPlayer.controls ? '<i id="toggleIcon" class="fas fa-eye-slash"></i>' : '<i id="toggleIcon" class="fas fa-eye"></i>';
 });
 
 playButton.addEventListener('click', () => {
     audioPlayer.play();
+    document.querySelector('.controls').classList.add('playing');
 });
 
 pauseButton.addEventListener('click', () => {
     audioPlayer.pause();
+    document.querySelector('.controls').classList.remove('playing');
 });
 
 stopButton.addEventListener('click', () => {
     audioPlayer.pause();
     audioPlayer.currentTime = 0;
+    document.querySelector('.controls').classList.remove('playing');
 });
 
 volumeSlider.addEventListener('input', (event) => {
     audioPlayer.volume = event.target.value;
+    updateVolumeIcon(event.target.value);
 });
+// Fonction pour mettre à jour l'icône de volume en fonction du niveau de volume
+function updateVolumeIcon(volume) {
+    if (volume == 0) {
+        volumeIcon.className = 'fas fa-volume-mute volume-icon';
+    } else if (volume > 0 && volume <= 0.3) {
+        volumeIcon.className = 'fas fa-volume-down volume-icon';
+    } else if (volume > 0.3 && volume <= 0.7) {
+        volumeIcon.className = 'fas fa-volume volume-icon';
+    } else {
+        volumeIcon.className = 'fas fa-volume-up volume-icon';
+    }
+}
+
+// Initialiser l'icône de volume au chargement de la page
+updateVolumeIcon(volumeSlider.value);
