@@ -26,7 +26,7 @@ button {
     
     font-size: 14px;
     cursor: pointer;
-    width: 40px;
+    width: 35px;
     
 }
 
@@ -275,7 +275,7 @@ button {
     background-color: #444;
     color: #2de22d;
     border: none;
-    padding: 10px;
+    
     margin: 0 10px;
     cursor: pointer;
     border-radius: 5px;
