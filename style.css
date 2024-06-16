@@ -1,0 +1,309 @@
+#map {
+    height: 200px;
+    width: 100%;
+    border-radius: 10px;
+    border: 1.2px solid #010101;
+}
+.map-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    padding: 10px 15px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.map-button:hover {
+    background: #f0f0f0;
+}
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #161515;
+    color: #ffffff;
+}
+
+.radio-player {
+    margin: 20px 0;
+}
+
+.station-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.station-list li {
+    margin: 10px;
+    padding: 10px;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: background-color 0.5s;
+}
+
+.station-list li:hover {
+    background-color: #e0e0e0;
+}
+
+.station-tuning {
+    font-size: 15px;
+    font-weight: bold;
+
+}
+
+.station-name {
+    font-size: 16px;
+    margin-top: 2px;
+}
+
+.station-active {
+    background-color: #2de22d;
+}
+
+.frequency-selector {
+    margin: 20px 0;
+    background-color: #161515;
+    border-radius: 10px;
+    border: 1.2px solid #010101;
+}
+
+.frequency-selector input[type="range"] {
+    width: 80%;
+    height: 40px;
+    -webkit-appearance: none;
+    margin: 18px 0;
+    background: transparent;
+}
+
+.frequency-selector input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000;
+    background: #2de22d;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.frequency-selector input[type="range"]::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000;
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #f00a0a;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -14px;
+}
+
+.frequency-selector input[type="range"]:focus::-webkit-slider-runnable-track {
+    background: #2de22d;
+}
+
+.frequency-selector input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000;
+    background: #2de22d;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.frequency-selector input[type="range"]::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000;
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+.frequency-selector input[type="range"]::-ms-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+.frequency-selector input[type="range"]::-ms-fill-lower {
+    background: #2de22d;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000;
+}
+
+.frequency-selector input[type="range"]::-ms-fill-upper {
+    background: #2de22d;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000;
+}
+
+.frequency-selector input[type="range"]::-ms-thumb {
+    box-shadow: 1px 1px 1px #000000;
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+    height: 8.4px;
+}
+
+.frequency-selector input[type="range"]:focus::-ms-fill-lower {
+    background: #2de22d;
+}
+
+.frequency-selector input[type="range"]:focus::-ms-fill-upper {
+    background: #2de22d;
+}
+
+.frequency-ticks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Centrage vertical */
+    width: 80%;
+    margin: 0 auto;
+    height: 20px;
+}
+
+.frequency-tick {
+    text-align: center;
+    width: 16px;
+    font-size: 8px;
+    color: #2de22d;
+}
+
+.station-logo {
+    width: 150px;
+    height: 60px;
+}
+
+.tuner-container {
+    background-color: #362e2e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.tuner-display {
+    background-color: #fff;
+    border: 1px solid #cccccc;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.tuner-display span {
+    display: inline-block;
+    width: 50px;
+}
+
+.tuner-knobs {
+    display: flex;
+    justify-content: space-around;
+}
+
+.knob {
+    width: 40px;
+    height: 40px;
+    background-color: #ccc;
+    border: 2px solid #999;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+}
+
+.knob::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background-color: #333;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Styles des nouveaux boutons */
+.control-buttons {
+    margin: 20px 0;
+}
+
+.control-buttons button {
+    background-color: #444;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.control-buttons button:hover {
+    background-color: #666;
+}
+
+/* Styles pour les boutons de navigation avec icônes */
+.frequency-selector button {
+    background-color: #444;
+    color: #2de22d;
+    border: none;
+    padding: 10px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-size: 18px;
+    height: 70px;
+    margin-bottom: 10px;
+}
+
+.frequency-selector button:hover {
+    background-color: #666;
+}
+
+.frequency-display {
+    background-color: #000000;
+    color: #2de22d;
+    border-radius: 10px;
+    border: 1.2px solid #7a7a7a;
+}
+
+.tuner {
+    background-color: #000000;
+    height: 18px;
+    border-radius: 10px;
+    border: 1.2px solid #7a7a7a;
+}
+
+.img {
+    border-radius: 10px;
+    border: 1.2px solid #7a7a7a;
+}
