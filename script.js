@@ -2,73 +2,66 @@ const stationsSaguenay = [
     {
         tuning: "92,5",
         name: "MA RADIO D'ICI Saguenay-Lac-St-Jean (CKAJ-FM)",
-        pays: "Canada - Québec (Saguenay)",
         url: "https://stream.statsradio.com/8060/stream",
         logo: "https://radioenlignefrance.com/storage/radios/4349/4985/conversions/2BMxa2niq0Fot95GbiICRLE1I4yu9R-metaY2thai1mbS5wbmc=--lg.webp"
     },
     {
         tuning: "93,7",
         name: "ICI Radio-Canada Première Saguenay–Lac-Saint-Jean",
-        pays: "Canada - Québec (Saguenay)",
         url: " https://playerservices.streamtheworld.com/api/livestream-redirect/CBJFM_SRC.mp3",
         logo: "https://cdn.onlineradiobox.com/img/l/1/16561.v10.png"
     },
     {
         tuning: "94,5",
         name: "Energie Saguenay-Lac-St-Jean (CJAB-FM)",
-        pays: "Canada - Québec (Saguenay)",
         url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CJABFM_ADP.aac",
-        logo: "https://top-radio.org/wp-content/uploads/logo/id/22626.png"
+        logo: "https://www.radioenergie.ca/content/dam/audio/iheart-stations-logos/logo-nrj-saguenay.svg"
     },
     {
         tuning: "95,7",
         name: "KYK - Saguenay (CKYK-FM)",
-        pays: "Canada - Québec (Saguenay)",
         url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CKYKFM.mp3",
         logo: "https://cdn.onlineradiobox.com/img/l/4/12304.v9.png"
     },
     {
         tuning: "96,9",
         name: "Rouge FM Saguenay-Lac-St-Jean (CFIX-FM)",
-        pays: "Canada - Québec (Saguenay)",
         url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CFIXFM_ADP.aac",
         logo: "https://cdn.onlineradiobox.com/img/l/4/11624.v14.png"
     },
     {
         tuning: "98,3",
         name: "Rythme FM Saguenay (CILM-FM)",
-        pays: "Canada - Québec (Saguenay)",
         url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CILMFM.mp3",
         logo: "https://cdn.onlineradiobox.com/img/l/5/80625.v7.png"
     },
     {
         tuning: "100,9",
         name: "Ici Musique Saguenay",
-        pays: "Canada - Québec (Saguenay)",
         url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CBJXFM_SRC.mp3",
         logo: "https://cdn.onlineradiobox.com/img/l/2/19352.v6.png"
     },
     {
         tuning: "106,7",
         name: "Galilée Saguenay",
-        pays: "Canada - Québec (Saguenay)",
         url: "https://cast1.asurahosting.com/proxy/fondatio/stream2",
         logo: "https://cdn.onlineradiobox.com/img/l/7/22837.v4.png"
     }
 ];
 const stationsMontreal = [
 
-    {
-        tuning: "96,9",
-        name: "Rouge FM",
-        url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CITEFM.mp3",
-        logo: "https://cdn.onlineradiobox.com/img/l/9/11619.v8.png"
-    },
+    
     {
         tuning: "97,7",
         name: "CHOM 97.7 Montréal",
         url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CHOMFMAAC.aac",
         logo: "https://cdn.onlineradiobox.com/img/l/6/10906.v9.png"
+    },
+    {
+        tuning: "98,5",
+        name: "98,5FM Montréal (CHMP-FM)",
+        url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CHMPFM_SC.aac",
+        logo: "https://cdn.cogecolive.com/websites-public/logo_985_2021_color_default.svg"
     },
     {
         tuning: "99,5",
@@ -81,6 +74,12 @@ const stationsMontreal = [
         name: "Rythme FM",
         url: " https://playerservices.streamtheworld.com/api/livestream-redirect/CFGLFM.mp3",
         logo: "https://cdn.onlineradiobox.com/img/l/0/16960.v12.png"
+    },
+    {
+        tuning: "107,5",
+        name: "Rouge FM Montréal" ,
+        url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CITEFM.mp3",
+        logo: "https://cdn.onlineradiobox.com/img/l/9/11619.v8.png"
     }
 ];
 const stationsQuebec = [
@@ -121,7 +120,21 @@ const frequencyDisplay = document.getElementById('frequencyDisplay');
 const regionSelector = document.getElementById('regionSelector');
 let currentActive = null;
 let stations = [];
-
+function getStationsForRegion(regionName) {
+    switch(regionName) {
+        case 'Saguenay':
+            return stationsSaguenay;
+        case 'Montreal':
+            return stationsMontreal;
+        case 'Quebec':
+            return stationsQuebec;
+        case 'Sherbrooke':
+            return stationsSherbrooke;
+        // Add other cases for other regions
+        default:
+            return [];
+    }
+}
 // Fonction pour charger les stations en fonction de la région sélectionnée
 function loadStations(region) {
     // Effacer les éléments existants
@@ -129,23 +142,7 @@ function loadStations(region) {
     frequencyTicks.innerHTML = '';
 
     // Charger les stations en fonction de la région sélectionnée
-    switch(region) {
-        case 'Saguenay':
-            stations = stationsSaguenay;
-            break;
-        case 'Montreal':
-            stations = stationsMontreal;
-            break;
-        case 'Quebec':
-            stations = stationsQuebec;
-            break;
-        case 'Sherbrooke':
-            stations = stationsSherbrooke;
-            break;
-        // Add other cases for other regions
-        default:
-            stations = [];
-    }
+    stations = getStationsForRegion(region);
 
     // Ajouter les stations à la liste
     stations.forEach((station, index) => {
@@ -228,68 +225,109 @@ document.getElementById('next').addEventListener('click', () => {
     }
 });
 
-var map = L.map('map').setView([50, -90], 3);
+// Créer la carte et définir la vue initiale
+var map = L.map('map', {
+    center: [48, -70],
+    zoom: 5,
+    minZoom: 3,  // Définir le zoom minimum
+    maxZoom: 10, // Définir le zoom maximum
+    maxBounds: [
+        [-85, -179.5], // Sud-Ouest
+        [85, 179.5]    // Nord-Est
+    ]
+});
 
+// Ajouter les tuiles de la carte OpenStreetMap
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
+// Définir les limites (bounds) de la carte
+var southWest = L.latLng(-85, -179.5); // Ajuster légèrement la longitude ouest
+var northEast = L.latLng(85, 179.5);   // Ajuster légèrement la longitude est
+var bounds = L.latLngBounds(southWest, northEast);
+
+// Restreindre la vue de la carte aux limites définies
+map.setMaxBounds(bounds);
+
+// Écouter l'événement 'moveend' pour s'assurer que la carte reste dans les limites
+map.on('moveend', function() {
+    if (!bounds.contains(map.getCenter())) {
+        map.panInsideBounds(bounds, { animate: false });
+    }
+});
+
 var regions = [
     {name: "Saguenay", coords: [48.4168, -71.0653]},
-    {name: "Montreal", coords: [45.5017, -73.5673]},
-    {name: "Saint-Hyacinthe", coords: [45.6308, -72.9567]},
-    {name: "Saint-Jean-sur-Richelieu", coords: [45.3070, -73.2623]},
-    {name: "Drummondville", coords: [45.8833, -72.4854]},
-    {name: "Est-du-Quebec", coords: [48.3581, -68.5811]},
-    {name: "Estrie", coords: [45.4103, -71.8820]},
-    {name: "Gatineau-Ottawa", coords: [45.4765, -75.7013]},
-    {name: "Mauricie", coords: [46.6090, -72.2081]},
     {name: "Quebec", coords: [46.8139, -71.2082]},
-    {name: "Rouyn-Noranda", coords: [48.2324, -79.0283]},
-    {name: "Val-d'Or", coords: [48.0972, -77.7974]},
-    {name: "Amqui", coords: [48.4634, -67.4349]},
-    {name: "Rimouski", coords: [48.4333, -68.5230]},
-    {name: "Alma", coords: [48.5500, -71.6500]},
-    {name: "Chibougamau", coords: [49.9133, -74.3683]},
-    {name: "Dolbeau-Mistassini", coords: [48.8836, -72.2256]},
-    {name: "Roberval", coords: [48.5209, -72.2227]},
-    {name: "Trois-Rivieres", coords: [46.3430, -72.5467]},
+    {name: "Montreal", coords: [45.5017, -73.5673]},
     {name: "Sherbrooke", coords: [45.4042, -71.8929]},
-    {name: "Saint-Jerome", coords: [45.7807, -74.0036]},
-    {name: "Mont-Tremblant", coords: [46.1184, -74.5962]},
-    {name: "Lachute", coords: [45.6526, -74.3252]},
-    {name: "Hawkesbury", coords: [45.6070, -74.6044]},
-    {name: "La-Pocatiere", coords: [47.3641, -70.0347]},
-    {name: "Riviere-du-Loup", coords: [47.8361, -69.5333]},
-    {name: "Montmagny", coords: [46.9794, -70.5500]},
-    {name: "Saint-Georges-de-Beauce", coords: [46.1214, -70.6690]},
-    {name: "Baie-Comeau", coords: [49.2167, -68.1500]},
-    {name: "Cote-Nord", coords: [50.0000, -66.6667]},
-    {name: "Gaspesie-Iles-de-la-Madeleine", coords: [48.7743, -64.4810]},
-    {name: "Grand-Nord", coords: [51.8918, -76.0513]},
-    {name: "Ile-du-Prince-Edouard", coords: [46.2500, -63.0000]},
-    {name: "Nord-de-l'Ontario", coords: [49.7592, -84.3631]},
-    {name: "Ottawa", coords: [45.4215, -75.6972]},
-    {name: "Toronto", coords: [43.651070, -79.347015]},
-    {name: "Windsor", coords: [42.3149, -83.0364]},
-    {name: "Manitoba", coords: [49.8951, -97.1384]},
-    {name: "Saskatchewan", coords: [52.9399, -106.4509]},
-    {name: "Nouveau-Brunswick", coords: [45.9636, -66.6431]},
-    {name: "Nouvelle-Ecosse", coords: [44.6820, -63.7443]},
-    {name: "Terre-Neuve-et-Labrador", coords: [53.1355, -57.6604]}
+    // {name: "Saint-Hyacinthe", coords: [45.6308, -72.9567]},
+    // {name: "Saint-Jean-sur-Richelieu", coords: [45.3070, -73.2623]},
+    // {name: "Drummondville", coords: [45.8833, -72.4854]},
+    // {name: "Est-du-Quebec", coords: [48.3581, -68.5811]},
+    // {name: "Estrie", coords: [45.4103, -71.8820]},
+    // {name: "Gatineau-Ottawa", coords: [45.4765, -75.7013]},
+    // {name: "Mauricie", coords: [46.6090, -72.2081]},
+    // {name: "Rouyn-Noranda", coords: [48.2324, -79.0283]},
+    // {name: "Val-d'Or", coords: [48.0972, -77.7974]},
+    // {name: "Amqui", coords: [48.4634, -67.4349]},
+    // {name: "Rimouski", coords: [48.4333, -68.5230]},
+    // {name: "Alma", coords: [48.5500, -71.6500]},
+    // {name: "Chibougamau", coords: [49.9133, -74.3683]},
+    // {name: "Dolbeau-Mistassini", coords: [48.8836, -72.2256]},
+    // {name: "Roberval", coords: [48.5209, -72.2227]},
+    // {name: "Trois-Rivieres", coords: [46.3430, -72.5467]},
+    // {name: "Saint-Jerome", coords: [45.7807, -74.0036]},
+    // {name: "Mont-Tremblant", coords: [46.1184, -74.5962]},
+    // {name: "Lachute", coords: [45.6526, -74.3252]},
+    // {name: "Hawkesbury", coords: [45.6070, -74.6044]},
+    // {name: "La-Pocatiere", coords: [47.3641, -70.0347]},
+    // {name: "Riviere-du-Loup", coords: [47.8361, -69.5333]},
+    // {name: "Montmagny", coords: [46.9794, -70.5500]},
+    // {name: "Saint-Georges-de-Beauce", coords: [46.1214, -70.6690]},
+    // {name: "Baie-Comeau", coords: [49.2167, -68.1500]},
+    // {name: "Cote-Nord", coords: [50.0000, -66.6667]},
+    // {name: "Gaspesie-Iles-de-la-Madeleine", coords: [48.7743, -64.4810]},
+    // {name: "Grand-Nord", coords: [51.8918, -76.0513]},
+    // {name: "Ile-du-Prince-Edouard", coords: [46.2500, -63.0000]},
+    // {name: "Nord-de-l'Ontario", coords: [49.7592, -84.3631]},
+    // {name: "Ottawa", coords: [45.4215, -75.6972]},
+    // {name: "Toronto", coords: [43.651070, -79.347015]},
+    // {name: "Windsor", coords: [42.3149, -83.0364]},
+    // {name: "Manitoba", coords: [49.8951, -97.1384]},
+    // {name: "Saskatchewan", coords: [52.9399, -106.4509]},
+    // {name: "Nouveau-Brunswick", coords: [45.9636, -66.6431]},
+    // {name: "Nouvelle-Ecosse", coords: [44.6820, -63.7443]},
+    // {name: "Terre-Neuve-et-Labrador", coords: [53.1355, -57.6604]}
 ];
 
 // Boucle forEach pour ajouter les marqueurs sur la carte
 regions.forEach(function(region) {
+    var stations = getStationsForRegion(region.name); // Récupérer les stations pour la région actuelle
+    var popupContent = `<strong>${region.name}</strong><br>`;
+    popupContent += `Nombre de stations disponibles: ${stations.length}<br>`;
+    stations.forEach(station => {
+        popupContent += `${station.tuning} - ${station.name}<br>`;
+    });
+    var adjustedCoords = [region.coords[0] + 1, region.coords[1]];
+    let content = `<strong>${region.name}</strong><br>`;
+    content += `Nombre de stations disponibles: ${stations.length}<br>`;
     // Ajouter un marqueur pour cette région
     L.marker(region.coords).addTo(map)
-    .bindPopup(region.name)
-    .on('click', function() {
-        // Mettre à jour la valeur du sélecteur de région
-        document.getElementById('regionSelector').value = region.name;
-        // Charger les stations pour la région sélectionnée
-        loadStations(region.name);
-    });
+        .bindPopup(popupContent)
+        .on('click', function() {
+            // Mettre à jour la valeur du sélecteur de région
+            document.getElementById('regionSelector').value = region.name;
+            // Charger les stations pour la région sélectionnée
+            loadStations(region.name);
+            
+        })
+        .on('mouseover', function() {
+            L.popup()
+                .setLatLng(adjustedCoords)
+                .setContent(content)
+                .openOn(map);});
 });
 
 
@@ -297,30 +335,24 @@ document.getElementById('regionSelector').addEventListener('change', function() 
     var selectedRegion = this.value;
     var region = regions.find(r => r.name === selectedRegion);
     if (region) {
+        var stations = getStationsForRegion(selectedRegion);
+            var popupContent = `<strong>${region.name}</strong><br>`;
+            popupContent += `Nombre de stations disponibles: ${stations.length}<br>`;
+            stations.forEach(station => {
+                popupContent += `${station.tuning} - ${station.name}<br>`;
+            });
         map.setView(region.coords, 7);
 
         L.popup()
         .setLatLng(region.coords)
-        .setContent(region.name)
+        .setContent(popupContent)
         .openOn(map);
 
 
     }
 });
 
-document.querySelectorAll('#regionSelector option').forEach(function(option) {
-    option.addEventListener('mouseenter', function() {
-        var selectedRegion = this.value;
-        var region = regions.find(r => r.name === selectedRegion);
-        if (region) {
-            map.setView(region.coords, 7);
-            L.popup()
-             .setLatLng(region.coords)
-             .setContent(region.name)
-             .openOn(map);
-        }
-    });
-});
+
 
 // Création d'un contrôle personnalisé pour recentrer la carte
 var recenterControl = L.Control.extend({
@@ -340,7 +372,7 @@ var recenterControl = L.Control.extend({
         container.style.padding = '10px';
 
         container.onclick = function(){
-            map.setView([50, -90], 3);
+            map.setView([48, -70], 5);
         }
 
         return container;
@@ -348,3 +380,32 @@ var recenterControl = L.Control.extend({
 });
 
 map.addControl(new recenterControl());
+
+const toggleControlsButton = document.getElementById('toggleControlsButton');
+const playButton = document.getElementById('playButton');
+const pauseButton = document.getElementById('pauseButton');
+const stopButton = document.getElementById('stopButton');
+const volumeSlider = document.getElementById('volumeSlider');
+
+// Ajouter des événements aux boutons
+toggleControlsButton.addEventListener('click', () => {
+    audioPlayer.controls = !audioPlayer.controls;
+    toggleControlsButton.textContent = audioPlayer.controls ? 'Hide Controls' : 'Show Controls';
+});
+
+playButton.addEventListener('click', () => {
+    audioPlayer.play();
+});
+
+pauseButton.addEventListener('click', () => {
+    audioPlayer.pause();
+});
+
+stopButton.addEventListener('click', () => {
+    audioPlayer.pause();
+    audioPlayer.currentTime = 0;
+});
+
+volumeSlider.addEventListener('input', (event) => {
+    audioPlayer.volume = event.target.value;
+});

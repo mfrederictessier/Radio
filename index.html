@@ -14,9 +14,10 @@
 </head>
 
 <body>
+    
     <div class="tuner-container">
-        <img class="img" src="online-radio-station-vintage-icon-or-symbol-vector.jpg" alt="" height="150px">
-        <h1>Syntonisateur Radio Gratuit</h1>
+        <span><img class="img" src="online-radio-station-vintage-icon-or-symbol-vector.jpg" alt="" height="100px"></span>
+        <h1>Syntonisateur Radio</h1>
         <!-- Histats.com  (div with counter) -->
         <div id="histats_counter"></div>
         <!-- Histats.com  START  (aync)-->
@@ -33,16 +34,12 @@
                     alt="free site statistics" border="0"></a></noscript>
         <!-- Histats.com  END  -->
         <div class="radio-player">
-            <audio class="player" id="audioPlayer" controls>
+            <audio class="player" id="audioPlayer">
                 Votre navigateur ne supporte pas l'élément audio.
             </audio>
+            
         </div>
 
-        <div class="control-buttons">
-            <button id="stopButton"><i class="fas fa-stop"></i> Stop</button>
-
-
-        </div>
 
         <div class="frequency-selector">
 
@@ -50,6 +47,7 @@
                 <div class="frequency-ticks" id="frequencyTicks" style="width: 60%;">
                     <!-- Ticks de fréquence générés dynamiquement -->
                 </div>
+                
 
 
             </div>
@@ -58,22 +56,34 @@
             <input type="range" id="frequencyRange" min="0" step="1" style="width: 60%;">
             <span><button id="next"><i class="fas fa-plus"></i> </button></span>
             <div class="frequency-display" id="frequencyDisplay"></div>
+            <div class="controls">
+                <button id="toggleControlsButton">Toggle Controls</button>
+                <button id="playButton">Play</button>
+                <button id="pauseButton">Pause</button>
+                <button id="stopButton">Stop</button><br>
+                <div class="volume-control">
+                    <i class="fas fa-volume-mute volume-icon" id="volumeIconMin" style="color: yellowgreen;"></i>
+                    <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1" orient="vertical" style="width: 60%;"> <i class="fas fa-volume-up volume-icon" id="volumeIcon" style="color: yellowgreen; "></i>
+                </div>
+            </div>
         </div>
 
-        <h2>Stations Disponibles</h2>
+        
         <label id="regionLabel">Choisissez une région :</label>
         <select id="regionSelector" aria-labelledby="regionLabel">
             <optgroup label="Québec">
                 <option value="Saguenay">Saguenay</option>
+                <option value="Quebec">Québec</option>
                 <option value="Montreal">Montréal</option>
-                <option value="Saint-Hyacinthe">Saint-Hyacinthe</option>
+                <option value="Sherbrooke">Sherbrooke</option>
+                <!-- <option value="Saint-Hyacinthe">Saint-Hyacinthe</option>
                 <option value="Saint-Jean-sur-Richelieu">Saint-Jean-sur-Richelieu</option>
                 <option value="Drummondville">Drummondville</option>
                 <option value="Est-du-Quebec">Est du Québec</option>
                 <option value="Estrie">Estrie</option>
                 <option value="Gatineau-Ottawa">Gatineau-Ottawa</option>
                 <option value="Mauricie">Mauricie</option>
-                <option value="Quebec">Québec</option>
+                
                 <option value="Rouyn-Noranda">Rouyn-Noranda</option>
                 <option value="Val-d'Or">Val d'Or</option>
                 <option value="Amqui">Amqui</option>
@@ -83,7 +93,7 @@
                 <option value="Dolbeau-Mistassini">Dolbeau-Mistassini</option>
                 <option value="Roberval">Roberval</option>
                 <option value="Trois-Rivieres">Trois-Rivières</option>
-                <option value="Sherbrooke">Sherbrooke</option>
+                
                 <option value="Saint-Jerome">Saint-Jérôme</option>
                 <option value="Mont-Tremblant">Mont-Tremblant</option>
                 <option value="Lachute">Lachute</option>
@@ -97,9 +107,9 @@
                 <option value="Gaspesie-Iles-de-la-Madeleine">Gaspésie-Îles-de-la-Madeleine</option>
                 <option value="Grand-Nord">Grand Nord</option>
                 <option value="Ile-du-Prince-Edouard">Île-du-Prince-Édouard</option>
-                <option value="Nord-de-l'Ontario">Nord de l'Ontario</option>
+                <option value="Nord-de-l'Ontario">Nord de l'Ontario</option> -->
             </optgroup>
-            <optgroup label="Ontario">
+            <!-- <optgroup label="Ontario">
                 <option value="Ottawa">Ottawa</option>
                 <option value="Toronto">Toronto</option>
                 <option value="Windsor">Windsor</option>
@@ -112,13 +122,14 @@
                 <option value="Nouveau-Brunswick">Nouveau-Brunswick</option>
                 <option value="Nouvelle-Ecosse">Nouvelle-Écosse</option>
                 <option value="Terre-Neuve-et-Labrador">Terre-Neuve-et-Labrador</option>
-            </optgroup>
+            </optgroup> -->
         </select>
-        <div id="map"></div>
-        <button id="recenterButton" class="map-button">Recentrer</button>
+        <div id="map" style="margin-top: 20px;"></div>
+        
 
     
 
+        <h2>Stations Disponibles</h2>
         <ul class="station-list" id="stationList">
             <!-- Stations de radio -->
         </ul>
