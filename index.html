@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="style.css">
-    <style>
-
-    </style>
 </head>
 
 <body>
@@ -58,12 +55,12 @@
             <div class="frequency-display" id="frequencyDisplay"></div>
             <div class="controls">
                 <button id="toggleControlsButton"><i id="toggleIcon" class="fas fa-eye"></i></button>
-                <button id="playButton"><i class="fas fa-play fa-1x"></i></button>
+                <button id="playButton"><i class="fas fa-play"></i></button>
                 <button id="pauseButton"><i class="fas fa-pause"></i> </button>
                 <button id="stopButton"><i class="fas fa-stop"></i></button><br>
                 <div class="volume-control">
-                    <i class="fas fa-volume-mute volume-icon" id="volumeIconMin" style="color: #2de22d;"></i>
-                    <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1" orient="vertical" style="width: 60%;"> <i class="fas fa-volume-up volume-icon"  style="color: #2de22d; "></i>
+                    <i class="fas fa-volume-mute volume-icon fa-2x" id="volumeIconMin" style="color: #2de22d;"></i>
+                    <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1" orient="vertical" style="width: 60%;"> <i class="fas fa-volume-up volume-icon fa-2x"  style="color: #2de22d; "></i>
                 </div>
             </div>
         </div>
@@ -71,68 +68,73 @@
         
         <label id="regionLabel">Choisissez une région :</label>
         <select id="regionSelector" aria-labelledby="regionLabel">
-            <optgroup label="Québec">
-                <option value="Saguenay">Saguenay</option>
-                <option value="Quebec">Québec</option>
-                <option value="Montreal">Montréal</option>
-                <option value="Sherbrooke">Sherbrooke</option>
-                <!-- <option value="Saint-Hyacinthe">Saint-Hyacinthe</option>
-                <option value="Saint-Jean-sur-Richelieu">Saint-Jean-sur-Richelieu</option>
-                <option value="Drummondville">Drummondville</option>
-                <option value="Est-du-Quebec">Est du Québec</option>
-                <option value="Estrie">Estrie</option>
-                <option value="Gatineau-Ottawa">Gatineau-Ottawa</option>
-                <option value="Mauricie">Mauricie</option>
-                
-                <option value="Rouyn-Noranda">Rouyn-Noranda</option>
-                <option value="Val-d'Or">Val d'Or</option>
-                <option value="Amqui">Amqui</option>
-                <option value="Rimouski">Rimouski</option>
-                <option value="Alma">Alma</option>
-                <option value="Chibougamau">Chibougamau</option>
-                <option value="Dolbeau-Mistassini">Dolbeau-Mistassini</option>
-                <option value="Roberval">Roberval</option>
-                <option value="Trois-Rivieres">Trois-Rivières</option>
-                
-                <option value="Saint-Jerome">Saint-Jérôme</option>
-                <option value="Mont-Tremblant">Mont-Tremblant</option>
-                <option value="Lachute">Lachute</option>
-                <option value="Hawkesbury">Hawkesbury</option>
-                <option value="La-Pocatiere">La Pocatière</option>
-                <option value="Riviere-du-Loup">Rivière-du-Loup</option>
-                <option value="Montmagny">Montmagny</option>
-                <option value="Saint-Georges-de-Beauce">Saint-Georges-de-Beauce</option>
-                <option value="Baie-Comeau">Baie Comeau</option>
-                <option value="Cote-Nord">Côte-Nord</option>
-                <option value="Gaspesie-Iles-de-la-Madeleine">Gaspésie-Îles-de-la-Madeleine</option>
-                <option value="Grand-Nord">Grand Nord</option>
-                <option value="Ile-du-Prince-Edouard">Île-du-Prince-Édouard</option>
-                <option value="Nord-de-l'Ontario">Nord de l'Ontario</option> -->
+            <optgroup label="Canada" style="font-size: large;">
+                <optgroup label="Québec">
+                    <option value="Saguenay">Saguenay</option>
+                    <option value="Quebec">Québec</option>
+                    <option value="Montreal">Montréal</option>
+                    <option value="Sherbrooke">Sherbrooke</option>
+                    <option value="Mauricie">Mauricie</option>
+                    <!-- <option value="Saint-Hyacinthe">Saint-Hyacinthe</option>
+                            <option value="Saint-Jean-sur-Richelieu">Saint-Jean-sur-Richelieu</option>
+                            <option value="Drummondville">Drummondville</option>
+                            <option value="Est-du-Quebec">Est du Québec</option>
+                            <option value="Estrie">Estrie</option>
+                            <option value="Gatineau-Ottawa">Gatineau-Ottawa</option>
+                            
+                            
+                            <option value="Rouyn-Noranda">Rouyn-Noranda</option>
+                            <option value="Val-d'Or">Val d'Or</option>
+                            <option value="Amqui">Amqui</option>
+                            <option value="Rimouski">Rimouski</option>
+                            <option value="Alma">Alma</option>
+                            <option value="Chibougamau">Chibougamau</option>
+                            <option value="Dolbeau-Mistassini">Dolbeau-Mistassini</option>
+                            <option value="Roberval">Roberval</option>
+                            <option value="Trois-Rivieres">Trois-Rivières</option>
+                            
+                            <option value="Saint-Jerome">Saint-Jérôme</option>
+                            <option value="Mont-Tremblant">Mont-Tremblant</option>
+                            <option value="Lachute">Lachute</option>
+                            <option value="Hawkesbury">Hawkesbury</option>
+                            <option value="La-Pocatiere">La Pocatière</option>
+                            <option value="Riviere-du-Loup">Rivière-du-Loup</option>
+                            <option value="Montmagny">Montmagny</option>
+                            <option value="Saint-Georges-de-Beauce">Saint-Georges-de-Beauce</option>
+                            <option value="Baie-Comeau">Baie Comeau</option>
+                            <option value="Cote-Nord">Côte-Nord</option>
+                            <option value="Gaspesie-Iles-de-la-Madeleine">Gaspésie-Îles-de-la-Madeleine</option>
+                            <option value="Grand-Nord">Grand Nord</option>
+                            <option value="Ile-du-Prince-Edouard">Île-du-Prince-Édouard</option>
+                            <option value="Nord-de-l'Ontario">Nord de l'Ontario</option> -->
+                </optgroup>
+                <optgroup label="Ontario">
+                    <option value="Ottawa">Ottawa</option>
+                    <option value="Toronto">Toronto</option>
+                </optgroup>
+                <!-- 
+                    <optgroup label="Ouest canadien">
+                        <option value="Manitoba">Manitoba</option>
+                        <option value="Saskatchewan">Saskatchewan</option>
+                    </optgroup>
+                    <optgroup label="Provinces atlantiques">
+                        <option value="Nouveau-Brunswick">Nouveau-Brunswick</option>
+                        <option value="Nouvelle-Ecosse">Nouvelle-Écosse</option>
+                        <option value="Terre-Neuve-et-Labrador">Terre-Neuve-et-Labrador</option>
+                    </optgroup> -->
             </optgroup>
-            <!-- <optgroup label="Ontario">
-                <option value="Ottawa">Ottawa</option>
-                <option value="Toronto">Toronto</option>
-                <option value="Windsor">Windsor</option>
-            </optgroup>
-            <optgroup label="Ouest canadien">
-                <option value="Manitoba">Manitoba</option>
-                <option value="Saskatchewan">Saskatchewan</option>
-            </optgroup>
-            <optgroup label="Provinces atlantiques">
-                <option value="Nouveau-Brunswick">Nouveau-Brunswick</option>
-                <option value="Nouvelle-Ecosse">Nouvelle-Écosse</option>
-                <option value="Terre-Neuve-et-Labrador">Terre-Neuve-et-Labrador</option>
-            </optgroup> -->
         </select>
         <div id="map" style="margin-top: 20px;"></div>
         
 
     
 
-        <h2>Stations Disponibles</h2>
-        <ul class="station-list" id="stationList">
-            <!-- Stations de radio -->
-        </ul>
+        <div class="list">
+            <h2>Stations Disponibles</h2>
+            <ul class="station-list" id="stationList">
+                <!-- Stations de radio -->
+            </ul>
+        </div>
     </div>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="script.js"></script>
