@@ -192,7 +192,9 @@ function setActiveStation(index) {
     audioPlayer.play();
 
     // Mettre à jour l'affichage de la fréquence
-    frequencyDisplay.textContent = `Fréquence: ${stations[index].tuning} MHz`;
+    // Update the frequency display with the current station's frequency and a volume icon
+frequencyDisplay.innerHTML = `Fréquence: ${stations[index].tuning} MHz  <i class="fas fa-volume-up volume-icon" id="volumeIcon" style="color: #2de22d;"></i>`;
+
     frequencyRange.value = index;
 }
 
@@ -421,7 +423,7 @@ function updateVolumeIcon(volume) {
     } else if (volume > 0 && volume <= 0.3) {
         volumeIcon.className = 'fas fa-volume-down volume-icon';
     } else if (volume > 0.3 && volume <= 0.7) {
-        volumeIcon.className = 'fas fa-volume volume-icon';
+        volumeIcon.className = 'fas fa-volume-down volume-icon';
     } else {
         volumeIcon.className = 'fas fa-volume-up volume-icon';
     }
@@ -429,3 +431,28 @@ function updateVolumeIcon(volume) {
 
 // Initialiser l'icône de volume au chargement de la page
 updateVolumeIcon(volumeSlider.value);
+
+// Function to update the frequency display
+function updateFrequencyDisplay() {
+    const index = frequencyRange.value; // Get the current index from the frequency range
+    let displayContent = `Fréquence: ${stations[index].tuning} MHz`;
+    if (!audioPlayer.paused) {
+        let volume = audioPlayer.volume;
+        if (volume == 0) {
+            displayContent += ' <i class="fas fa-volume-mute volume-icon" id="volumeIcon" style="color: #2de22d;"></i>';
+        } else if (volume > 0 && volume <= 0.3) {
+            displayContent += ' <i class="fas fa-volume-down volume-icon" id="volumeIcon" style="color: #2de22d;"></i>';
+        } else if (volume > 0.3 && volume <= 0.7) {
+            displayContent += ' <i class="fas fa-volume-down volume-icon" id="volumeIcon" style="color: #2de22d;"></i>';
+        } else {
+            displayContent += ' <i class="fas fa-volume-up volume-icon" id="volumeIcon" style="color: #2de22d;"></i>';
+        }
+        
+    }
+    frequencyDisplay.innerHTML = displayContent;
+}
+// Event listeners for audio play and pause
+audioPlayer.addEventListener('play', updateFrequencyDisplay);
+audioPlayer.addEventListener('pause', updateFrequencyDisplay);
+
+updateFrequencyDisplay();
