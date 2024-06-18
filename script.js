@@ -281,16 +281,40 @@ function setActiveStation(index) {
     listItem.classList.add('station-active');
     currentActive = listItem;
 
-    // Changer la source de l'audio et jouer
+    // Changer la source de l'audio
     audioPlayer.src = stations[index].url;
-    audioPlayer.play();
+
+    // Vérifier si l'utilisateur a déjà interagi avec le document
+    if (document.readyState === "interactive" || document.readyState === "complete") {
+        // Si le document est déjà interactif ou complet, jouer l'audio
+        audioPlayer.play().then(() => {
+            // Mettre à jour les contrôles si la lecture réussit
+            document.querySelector('.controls').classList.remove('pause', 'stop');
+            document.querySelector('.controls').classList.add('playing');
+        }).catch(error => {
+            console.error("Erreur lors de la lecture de l'audio:", error);
+        });
+    } else {
+        // Si le document n'est pas encore interactif, attendre l'interaction utilisateur
+        document.addEventListener('click', function playAudioOnce() {
+            audioPlayer.play().then(() => {
+                // Mettre à jour les contrôles si la lecture réussit
+                document.querySelector('.controls').classList.remove('pause', 'stop');
+                document.querySelector('.controls').classList.add('playing');
+            }).catch(error => {
+                console.error("Erreur lors de la lecture de l'audio:", error);
+            });
+            // Retirer l'événement après la première interaction utilisateur
+            document.removeEventListener('click', playAudioOnce);
+        });
+    }
 
     // Mettre à jour l'affichage de la fréquence
-    // Update the frequency display with the current station's frequency and a volume icon
-frequencyDisplay.innerHTML = `Fréquence: ${stations[index].tuning} MHz  <i class="fas fa-volume-up volume-icon" id="volumeIcon" style="color: #2de22d;"></i>`;
-
+    frequencyDisplay.innerHTML = `Fréquence: ${stations[index].tuning} MHz  <i class="fas fa-volume-up volume-icon" id="volumeIcon" style="color: #2de22d;"></i>`;
     frequencyRange.value = index;
 }
+
+
 
 // Écouter les changements de sélection dans le menu déroulant
 regionSelector.addEventListener('change', (event) => {
@@ -506,7 +530,7 @@ var recenterControl = L.Control.extend({
     onAdd: function (map) {
         var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom map-button');
 
-        container.innerHTML = 'Recentrer';
+        container.innerHTML = '<i class="fas fa-crosshairs fa-2x"></i>';
         container.style.backgroundColor = 'white';
         container.style.color = 'black';
         container.style.width = 'auto';
@@ -601,3 +625,24 @@ audioPlayer.addEventListener('pause', updateFrequencyDisplay);
 
 updateFrequencyDisplay();
 
+// Fonction pour jouer l'audio et maintenir la page active
+function playAudioAndKeepPageActive(audioPlayer) {
+    function playAudio() {
+        if (document.visibilityState === 'visible') {
+            audioPlayer.play();
+        }
+    }
+
+    // Écouter l'événement de visibilité de la page
+    document.addEventListener('visibilitychange', function() {
+        if (document.visibilityState === 'visible' && audioPlayer.paused) {
+            playAudio();
+        }
+    });
+
+    // Jouer l'audio lorsque la fonction est appelée
+    playAudio();
+}
+
+
+playAudioAndKeepPageActive(audioPlayer);
