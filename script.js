@@ -133,14 +133,42 @@ const stationsQuebec = [
     }
 ];
 
-const stationsSherbrooke = [
+const stationsEstrie = [
 
     {
         tuning: "98,1",
         name: "Rythme FM Sherbrooke (CFGE-FM)",
-
         url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CFGEFM_SC.aac",
-        logo: "https://cdn.cogecolive.com/websites-public/logo_rythme_estrie_color_ripple.svg"
+        logo: "https://cdn.cogecolive.com/websites-public/logo_rythme_estrie_color_ripple.svg",
+        page: "https://estrie.rythmefm.com/"
+    },
+    {
+        tuning: "90,7",
+        name: "ICI Musique - Estrie",
+        url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CBFXFM2_SRC.mp3",
+        logo: "https://www.annuaire-quebecois.com/wp-content/uploads/2022/12/logo-ici-musique-90-7-fm-riviereduloup-en-direct.png",
+        page: "https://ici.radio-canada.ca/estrie"
+    },
+    {
+        tuning: "101,1",
+        name: " ICI Radio-Canada Première Estrie",
+        url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CBFFM10_SRC.mp3",
+        logo: "https://cdn.onlineradiobox.com/img/l/5/16565.v10.png",
+        page: "https://ici.radio-canada.ca/ohdio/premiere?tz=EST"
+    },
+    {
+        tuning: "102,7",
+        name: "Rouge FM Estrie (CITE-FM)",
+        url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CITE1FM_ADP.aac",
+        logo: "https://www.rougefm.ca/content/dam/audio/iheart-stations-logos/logo-rougefm-estrie.svg",
+        page: "https://www.rougefm.ca/estrie.html"
+    },
+    {
+        tuning: "106,1",
+        name: " Energie Estrie (Sherbrooke) (CIMO-FM)",
+        url: " https://playerservices.streamtheworld.com/api/livestream-redirect/CIMOFM_ADP.aac",
+        logo: "https://www.radioenergie.ca/content/dam/audio/iheart-stations-logos/logo-nrj-sherbrooke.svg",
+        page: "https://www.radioenergie.ca/estrie.html"
     }
 ];
 const stationsAlma = [
@@ -161,17 +189,18 @@ const stationsMauricie = [
         url: " https://playerservices.streamtheworld.com/api/livestream-redirect/CBFFM8_SRC.mp3",
         logo: "https://www.radio.fr/images/broadcasts/54/96/100369/3/c300.png"
     },
-    {
-        tuning: "98,1",
-        name: "Energie Mauricie (Trois-Rivières) (CIGB-FM)",
-        url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CIGBFM_ADP.aac",
-        logo: "https://www.radioenergie.ca/content/dam/audio/iheart-stations-logos/logo-nrj-mauricie.svg"
-    },
+    
     {
         tuning: "100,1",
         name: "Rythme FM Mauricie (CJEB-FM)",
         url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CJEBFM_SC.aac",
         logo: "https://cdn.cogecolive.com/websites-public/logo_rythme_mauricie_color_ripple.svg"
+    },
+    {
+        tuning: "102,3",
+        name: "Energie Mauricie (Trois-Rivières) (CIGB-FM)",
+        url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CIGBFM_ADP.aac",
+        logo: "https://www.radioenergie.ca/content/dam/audio/iheart-stations-logos/logo-nrj-mauricie.svg"
     },
     {
         tuning: "104,3",
@@ -239,7 +268,7 @@ const regionsList = {
     'Saguenay': stationsSaguenay,
     'Montreal': stationsMontreal,
     'Quebec': stationsQuebec,
-    'Sherbrooke': stationsSherbrooke,
+    'Estrie': stationsEstrie,
     'Mauricie': stationsMauricie,
     'Ottawa': stationsOttawa,
     'Rimouski': stationsRimouski,
@@ -267,7 +296,7 @@ function loadStations(region) {
                             <img class="station-logo" src="${station.logo}" alt="${station.name}" title="${station.name}">
                         </figure>
                       </span>
-                      <div style="font-size: x-small;"; class="station-name">${station.name}</div>`;
+                      <div style="font-size: small;"; class="station-name">${station.name}</div>`;
         listItem.addEventListener('click', () => {
             setActiveStation(index);
         });
@@ -338,7 +367,7 @@ function setActiveStation(index) {
     // Création de l'élément img avec lien cliquable
 stationLogo.innerHTML = `
 <a href="${stations[index].page}" target="_blank">
-    <img class="station-logo" style="background-color: black;" 
+    <img class="station-logo" style="background-color: #4000000;" 
          src="${stations[index].logo}" 
          alt="${stations[index].name}" 
          title="${stations[index].name}">
