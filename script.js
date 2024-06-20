@@ -84,7 +84,7 @@ const stationsMontreal = [
         tuning: "100,7",
         name: "ICI Musique - Montréal",
         url: "  https://playerservices.streamtheworld.com/api/livestream-redirect/CBFXFM_SRC.mp3",
-        logo: "https://th.bing.com/th/id/OIP.lRfpQPAqQD76xGEvOGQysAAAAA?w=118&h=50&c=7&r=0&o=5&pid=1.7"
+        logo: "https://www.radio.fr/images/broadcasts/6f/52/36091/1/c300.png"
     },
     {
         tuning: "105,7",
@@ -105,13 +105,13 @@ const stationsQuebec = [
         tuning: "92,7",
         name: "Radio-Classique - Québec (CJSQ-FM)",
         url: " https://www.radioking.com/play/radio-classique-quebec-92-7",
-        logo: "https://www.radioclassique.ca/upload/players/5e3c736c225953.40751304.png"
+        logo: "https://www.radioclassique.ca/upload/design/5d1cc4fcaad749.59987287.png"
     },
     {
         tuning: "95,3",
         name: "ICI Musique - Québec",
         url: " https://playerservices.streamtheworld.com/api/livestream-redirect/CBVXFM_SRC.mp3",
-        logo: "https://cdn-profiles.tunein.com/s12490/images/logod.png?t=637552187150000000"
+        logo: "https://static2.mytuner.mobi/media/tvos_radios/MWVRWWbeEa.jpg"
     },
     {
         tuning: "98,1",
@@ -159,7 +159,7 @@ const stationsMauricie = [
         tuning: "96,5",
         name: "ICI Radio-Canada Première Mauricie - Centre-du-Québec",
         url: " https://playerservices.streamtheworld.com/api/livestream-redirect/CBFFM8_SRC.mp3",
-        logo: "https://th.bing.com/th/id/OIP.yPjxwW0z-vxjF6KX4odZNQHaB5?w=336&h=89&c=7&r=0&o=5&pid=1.7"
+        logo: "https://www.radio.fr/images/broadcasts/54/96/100369/3/c300.png"
     },
     {
         tuning: "98,1",
@@ -267,7 +267,7 @@ function loadStations(region) {
                             <img class="station-logo" src="${station.logo}" alt="${station.name}" title="${station.name}">
                         </figure>
                       </span>
-                      <div class="station-name">${station.name}</div>`;
+                      <div style="font-size: x-small;"; class="station-name">${station.name}</div>`;
         listItem.addEventListener('click', () => {
             setActiveStation(index);
         });
@@ -335,7 +335,16 @@ function setActiveStation(index) {
 
     // Mettre à jour l'affichage du logo de la station active
     const stationLogo = document.getElementById('stationLogo');
-    stationLogo.innerHTML = `<img class="station-logo" src="${stations[index].logo}" alt="${stations[index].name}" title="${stations[index].name}">`;
+    // Création de l'élément img avec lien cliquable
+stationLogo.innerHTML = `
+<a href="${stations[index].page}" target="_blank">
+    <img class="station-logo" style="background-color: black;" 
+         src="${stations[index].logo}" 
+         alt="${stations[index].name}" 
+         title="${stations[index].name}">
+</a>
+`;
+
 
 }
 
@@ -369,7 +378,14 @@ document.getElementById('next').addEventListener('click', () => {
         setActiveStation(currentIndex + 1);
     }
 });
-
+document.getElementById('muteVolume').addEventListener('click', () => {
+    
+    audioPlayer.volume = 0;
+});
+document.getElementById('maxVolume').addEventListener('click', () => {
+    
+    audioPlayer.volume = 1;
+});
 // Créer la carte et définir la vue initiale
 var map = L.map('map', {
     center: [48, -70],
@@ -663,8 +679,14 @@ function updateFrequencyDisplay() {
         document.querySelector('.controls').classList.remove('pause', 'stop');
         document.querySelector('.controls').classList.add('playing');
     }
-    else{
+    else if(audioPlayer.paused && audioPlayer.currentTime == 0){
         document.querySelector('.controls').classList.remove('playing', 'pause');
+        document.querySelector('.controls').classList.add('stop');
+    }
+    else{
+        document.querySelector('.controls').classList.remove('playing', 'stop');
+        document.querySelector('.controls').classList.add('pause');
+
     }
     
     frequencyDisplay.innerHTML = displayContent;
