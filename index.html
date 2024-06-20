@@ -9,60 +9,73 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="style.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="https://sstatic.net/so/favicon.ico">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/components/navbar/">
 </head>
 
 <body>
     
     <header class="masthead">
-        <div class="container position-relative">
-            <img class="img" src="hha0rvq.png" alt="Logo" height="100px">
-            <div class="row align-items-center">
-                <div class="col-lg-12 py-5">
-                    <h1>Syntonisateur Radio</h1>
+        
+        <div class="header">
+            
+            <div class="container position-relative">
+                    <img class="img" src="hha0rvq.png" alt="Logo" height="100px">
+                    
                 </div>
-            </div>    
-        </div>
-        <svg style="pointer-events: none" class="wave" width="100%" height="60px" preserveAspectRatio="none" viewBox="0 0 1920 75">
-            <defs>
-                <style>
-                    .a {
-                        fill: none;
-                    }
-                    
-                    .b {
-                        clip-path: url(#a);
-                    }
-                    
-                    .c,
-                    .d {
-                        fill: #f9f9fc;
-                    }
-                    
-                    .d {
-                        opacity: 0.5;
-                        isolation: isolate;
-                    }
-                </style>
-                <clipPath id="a">
-                    <rect class="a" width="1920" height="75"></rect>
-                </clipPath>
-            </defs>
-            <title>wave</title>
-            <g class="b">
-                <path class="c" d="M1963,327H-105V65A2647.49,2647.49,0,0,1,431,19c217.7,3.5,239.6,30.8,470,36,297.3,6.7,367.5-36.2,642-28a2511.41,2511.41,0,0,1,420,48"></path>
-            </g>
-            <g class="b">
-                <path class="d" d="M-127,404H1963V44c-140.1-28-343.3-46.7-566,22-75.5,23.3-118.5,45.9-162,64-48.6,20.2-404.7,128-784,0C355.2,97.7,341.6,78.3,235,50,86.6,10.6-41.8,6.9-127,10"></path>
-            </g>
-            <g class="b">
-                <path class="d" d="M1979,462-155,446V106C251.8,20.2,576.6,15.9,805,30c167.4,10.3,322.3,32.9,680,56,207,13.4,378,20.3,494,24"></path>
-            </g>
-            <g class="b">
-                <path class="d" d="M1998,484H-243V100c445.8,26.8,794.2-4.1,1035-39,141-20.4,231.1-40.1,378-45,349.6-11.6,636.7,73.8,828,150"></path>
-            </g>
-        </svg>
-    </header>
+
+            <!--Content before waves-->
+            <div class="inner-header flex">
+                
+            <div class="bienvenue" style="font-size: smaller;">
+                <p>Bienvenue sur le Syntonisateur Radio Gratuit, votre plateforme pour écouter des stations de radio à travers plusieurs régions du Québec. Ce site vous permet de découvrir et d'écouter facilement une variété de stations radio disponibles dans différentes villes et régions, notamment Saguenay, Québec, Montréal, Estrie, Mauricie, Rimouski, et bien d'autres.</p>
     
+                <p>Que vous soyez à la recherche de nouvelles locales, de musique en direct, de débats d'actualité ou simplement d'une ambiance sonore spécifique, ce syntonisateur vous offre une sélection diversifiée pour répondre à vos préférences radiophoniques. Utilisez les boutons de contrôle pour naviguer entre les stations, ajuster le volume et explorer les fréquences disponibles.</p>
+                    
+                <p>Explorez la carte interactive pour découvrir les stations par région, et utilisez le sélecteur de fréquence pour ajuster votre écoute selon vos préférences. Pour chaque station, vous pouvez également accéder à leur site officiel pour plus d'informations et une expérience enrichie.</p>
+                    
+                <p>Syntonisateur Radio Gratuit est conçu pour les passionnés de radio qui cherchent à découvrir de nouvelles voix et à rester connectés aux actualités et aux cultures locales à travers le Québec. Profitez de votre expérience d'écoute et n'hésitez pas à explorer les nombreuses options disponibles pour enrichir votre expérience radiophonique quotidienne.</p>
+                    
+                <p>Merci de visiter Syntonisateur Radio Gratuit, votre destination pour une écoute radio enrichissante et diversifiée à travers le Québec.</p>
+    
+                <p>Frédéric Tessier</p>
+    
+            </div>
+            </div>
+            
+            <!--Waves Container-->
+            <div>
+            <svg class="waves" 
+            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+            <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+            </g>
+            </svg>
+            </div>
+            <!--Waves end-->
+            
+            </div>
+            <!--Header ends-->
+        
+        
+        
+        
+    </header>
+    <!--Hey! This is the original version
+of Simple CSS Waves-->
+
+
+    <div class="row align-items-center">
+        <div class="col-lg-12 py-5">
+            <h1>Syntonisateur Radio</h1>
+        </div>
+    </div>   
     
 
     <div class="tuner-container" style="margin-top: 20px;">
@@ -208,45 +221,21 @@
 
     <footer class="mastfoot" style="margin-top: 20px;">
         
-        <svg style="pointer-events: none; transform: scaleY(-1);" class="footer-wave" width="100%" height="50px" preserveAspectRatio="none" viewBox="0 0 1920 75">
-            <defs>
-                <style>
-                    .footer-a {
-                        fill: none;
-                    }
-                    
-                    .footer-b {
-                        clip-path: url(#footer-a);
-                    }
-                    
-                    .footer-c,
-                    .footer-d {
-                        fill: #f9f9fc;
-                    }
-                    
-                    .footer-d {
-                        opacity: 0.5;
-                        isolation: isolate;
-                    }
-                </style>
-                <clipPath id="footer-a">
-                    <rect class="footer-a" width="1920" height="75"></rect>
-                </clipPath>
-            </defs>
-            <title>wave</title>
-            <g class="footer-b">
-                <path class="footer-c" d="M1963,327H-105V65A2647.49,2647.49,0,0,1,431,19c217.7,3.5,239.6,30.8,470,36,297.3,6.7,367.5-36.2,642-28a2511.41,2511.41,0,0,1,420,48"></path>
-            </g>
-            <g class="footer-b">
-                <path class="footer-d" d="M-127,404H1963V44c-140.1-28-343.3-46.7-566,22-75.5,23.3-118.5,45.9-162,64-48.6,20.2-404.7,128-784,0C355.2,97.7,341.6,78.3,235,50,86.6,10.6-41.8,6.9-127,10"></path>
-            </g>
-            <g class="footer-b">
-                <path class="footer-d" d="M1979,462-155,446V106C251.8,20.2,576.6,15.9,805,30c167.4,10.3,322.3,32.9,680,56,207,13.4,378,20.3,494,24"></path>
-            </g>
-            <g class="footer-b">
-                <path class="footer-d" d="M1998,484H-243V100c445.8,26.8,794.2-4.1,1035-39,141-20.4,231.1-40.1,378-45,349.6-11.6,636.7,73.8,828,150"></path>
-            </g>
-        </svg>
+        <!-- Waves Container -->
+<div>
+    <svg class="waves" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="10" fill="#fff" />
+            <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(255,255,255,0.3)" />
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.5)" />
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.7)" />
+        </g>
+    </svg>
+</div>
+<!-- Waves end -->
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-7 py-5">

@@ -3,49 +3,57 @@ const stationsSaguenay = [
         tuning: "92,5",
         name: "MA RADIO D'ICI Saguenay-Lac-St-Jean (CKAJ-FM)",
         url: "https://stream.statsradio.com/8060/stream",
-        logo: "https://radioenlignefrance.com/storage/radios/4349/4985/conversions/2BMxa2niq0Fot95GbiICRLE1I4yu9R-metaY2thai1mbS5wbmc=--lg.webp"
+        logo: "https://radioenlignefrance.com/storage/radios/4349/4985/conversions/2BMxa2niq0Fot95GbiICRLE1I4yu9R-metaY2thai1mbS5wbmc=--lg.webp",
+        page: "https://ckaj.org/"
     },
     {
         tuning: "93,7",
         name: "ICI Radio-Canada Première Saguenay–Lac-Saint-Jean",
         url: " https://playerservices.streamtheworld.com/api/livestream-redirect/CBJFM_SRC.mp3",
-        logo: "https://cdn.onlineradiobox.com/img/l/1/16561.v10.png"
+        logo: "https://cdn.onlineradiobox.com/img/l/1/16561.v10.png",
+        page: "https://ici.radio-canada.ca/saguenay-lac-saint-jean"
     },
     {
         tuning: "94,5",
         name: "Energie Saguenay-Lac-St-Jean (CJAB-FM)",
         url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CJABFM_ADP.aac",
-        logo: "https://www.radioenergie.ca/content/dam/audio/iheart-stations-logos/logo-nrj-saguenay.svg"
+        logo: "https://www.radioenergie.ca/content/dam/audio/iheart-stations-logos/logo-nrj-saguenay.svg",
+        page: "https://www.radioenergie.ca/saguenay.html"
     },
     {
         tuning: "95,7",
         name: "KYK - Saguenay (CKYK-FM)",
         url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CKYKFM.mp3",
-        logo: "https://cdn.onlineradiobox.com/img/l/4/12304.v9.png"
+        logo: "https://cdn.onlineradiobox.com/img/l/4/12304.v9.png",
+        page: "https://www.957kyk.com/"
     },
     {
         tuning: "96,9",
         name: "Rouge FM Saguenay-Lac-St-Jean (CFIX-FM)",
         url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CFIXFM_ADP.aac",
-        logo: "https://cdn.onlineradiobox.com/img/l/4/11624.v14.png"
+        logo: "https://cdn.onlineradiobox.com/img/l/4/11624.v14.png",
+        page: "https://www.rougefm.ca/saguenay.html"
     },
     {
         tuning: "98,3",
         name: "Rythme FM Saguenay (CILM-FM)",
         url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CILMFM.mp3",
-        logo: "https://cdn.onlineradiobox.com/img/l/5/80625.v7.png"
+        logo: "https://cdn.onlineradiobox.com/img/l/5/80625.v7.png",
+        page: "https://saguenay.rythmefm.com/"
     },
     {
         tuning: "100,9",
         name: "Ici Musique Saguenay",
         url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CBJXFM_SRC.mp3",
-        logo: "https://cdn.onlineradiobox.com/img/l/2/19352.v6.png"
+        logo: "https://cdn.onlineradiobox.com/img/l/2/19352.v6.png",
+        page: "https://ici.radio-canada.ca/ohdio/musique"
     },
     {
         tuning: "106,7",
         name: "Galilée Saguenay",
         url: "https://cast1.asurahosting.com/proxy/fondatio/stream2",
-        logo: "https://cdn.onlineradiobox.com/img/l/7/22837.v4.png"
+        logo: "https://cdn.onlineradiobox.com/img/l/7/22837.v4.png",
+        page: "https://radiogalilee.com/"
     }
 ];
 const stationsMontreal = [
@@ -54,49 +62,57 @@ const stationsMontreal = [
         tuning: "94,3",
         name: "Energie Montréal (CKMF-FM)",
         url: " https://playerservices.streamtheworld.com/api/livestream-redirect/CKMFFMAAC_SC.aac",
-        logo: "https://www.radioenergie.ca/content/dam/audio/iheart-stations-logos/logo-nrj-montreal.svg"
+        logo: "https://www.radioenergie.ca/content/dam/audio/iheart-stations-logos/logo-nrj-montreal.svg",
+        page: "https://www.radioenergie.ca/montreal.html"
     },
     {
         tuning: "96,9",
         name: "CKOI Montréal (CKOI-FM)",
         url: " https://playerservices.streamtheworld.com/api/livestream-redirect/CKOIFM_SC.aac",
-        logo: "https://cdn.cogecolive.com/websites-public/logo_ckoi_color_default.svg"
+        logo: "https://cdn.cogecolive.com/websites-public/logo_ckoi_color_default.svg",
+        page: "https://www.ckoi.com/"
     },
     {
         tuning: "97,7",
         name: "CHOM 97.7 Montréal",
         url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CHOMFMAAC.aac",
-        logo: "https://cdn.onlineradiobox.com/img/l/6/10906.v9.png"
+        logo: "https://cdn.onlineradiobox.com/img/l/6/10906.v9.png",
+        page: "https://www.chom.com/"
     },
     {
         tuning: "98,5",
         name: "98,5FM Montréal (CHMP-FM)",
         url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CHMPFM_SC.aac",
-        logo: "https://cdn.cogecolive.com/websites-public/logo_985_2021_color_default.svg"
+        logo: "https://cdn.cogecolive.com/websites-public/logo_985_2021_color_default.svg",
+        page: "https://www.985fm.ca/"
     },
     {
         tuning: "99,5",
         name: "Radio Classique Montréal",
         url: " https://listen.radioking.com/radio/228241/stream/271810",
-        logo: "https://cdn.onlineradiobox.com/img/l/5/10905.v10.png"
+        logo: "https://cdn.onlineradiobox.com/img/l/5/10905.v10.png",
+        page: "https://radioclassique.ca/"
     },
     {
         tuning: "100,7",
         name: "ICI Musique - Montréal",
         url: "  https://playerservices.streamtheworld.com/api/livestream-redirect/CBFXFM_SRC.mp3",
-        logo: "https://www.radio.fr/images/broadcasts/6f/52/36091/1/c300.png"
+        logo: "https://www.radio.fr/images/broadcasts/6f/52/36091/1/c300.png",
+        page: "https://ici.radio-canada.ca/grandmontreal"
     },
     {
         tuning: "105,7",
         name: "Rythme FM Montréal",
         url: " https://playerservices.streamtheworld.com/api/livestream-redirect/CFGLFM.mp3",
-        logo: "https://cdn.onlineradiobox.com/img/l/0/16960.v12.png"
+        logo: "https://cdn.onlineradiobox.com/img/l/0/16960.v12.png",
+        page: "https://montreal.rythmefm.com/"
     },
     {
-        tuning: "107,5",
+        tuning: "107,3",
         name: "Rouge FM Montréal" ,
         url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CITEFM.mp3",
-        logo: "https://cdn.onlineradiobox.com/img/l/9/11619.v8.png"
+        logo: "https://www.rougefm.ca/content/dam/audio/iheart-stations-logos/logo-rougefm-montreal.svg",
+        page: "https://www.rougefm.ca/montreal.html"
     }
 ];
 const stationsQuebec = [
@@ -105,31 +121,36 @@ const stationsQuebec = [
         tuning: "92,7",
         name: "Radio-Classique - Québec (CJSQ-FM)",
         url: " https://www.radioking.com/play/radio-classique-quebec-92-7",
-        logo: "https://www.radioclassique.ca/upload/design/5d1cc4fcaad749.59987287.png"
+        logo: "https://www.radioclassique.ca/upload/design/5d1cc4fcaad749.59987287.png",
+        page: "https://www.radioclassique.ca/"
     },
     {
         tuning: "95,3",
         name: "ICI Musique - Québec",
         url: " https://playerservices.streamtheworld.com/api/livestream-redirect/CBVXFM_SRC.mp3",
-        logo: "https://static2.mytuner.mobi/media/tvos_radios/MWVRWWbeEa.jpg"
+        logo: "https://static2.mytuner.mobi/media/tvos_radios/MWVRWWbeEa.jpg",
+        page: "https://ici.radio-canada.ca/quebec"
     },
     {
         tuning: "98,1",
         name: "Radio X - Québec (CHOI-FM)",
         url: " https://lb0-stream.radiox981.ca/choi.mp3",
-        logo: "https://media.radiox.com/2023/04/choi-logo-mc-fond-pale.svg"
+        logo: "https://media.radiox.com/2023/04/choi-logo-mc-fond-pale.svg",
+        page: "https://radiox.com/"
     },
     {
         tuning: "98,9",
         name: "Energie Québec (CHIK-FM)",
         url: " https://playerservices.streamtheworld.com/api/livestream-redirect/CHIKFM_ADP.aac",
-        logo: "https://www.radioenergie.ca/content/dam/audio/iheart-stations-logos/logo-nrj-quebec.svg"
+        logo: "https://www.radioenergie.ca/content/dam/audio/iheart-stations-logos/logo-nrj-quebec.svg",
+        page: "https://www.radioenergie.ca/quebec.html"
     },
     {
         tuning: "102,9",
         name: "Rythme FM Québec (CFOM-FM)",
         url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CFOMFM_SC.aac",
-        logo: "https://cdn.cogecolive.com/websites-public/logo_rythme_quebec_color_ripple.svg"
+        logo: "https://cdn.cogecolive.com/websites-public/logo_rythme_quebec_color_ripple.svg",
+        page: "https://quebec.rythmefm.com/"
     }
 ];
 
@@ -181,32 +202,37 @@ const stationsMauricie = [
         tuning: "94,7",
         name: "Rouge FM Mauricie (CHEY-FM)",
         url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CHEYFM_ADP.aac",
-        logo: "https://www.rougefm.ca/content/dam/audio/iheart-stations-logos/logo-rougefm-mauricie.svg"
+        logo: "https://www.rougefm.ca/content/dam/audio/iheart-stations-logos/logo-rougefm-mauricie.svg",
+        page: "https://www.rougefm.ca/mauricie.html"
     },
     {
         tuning: "96,5",
         name: "ICI Radio-Canada Première Mauricie - Centre-du-Québec",
         url: " https://playerservices.streamtheworld.com/api/livestream-redirect/CBFFM8_SRC.mp3",
-        logo: "https://www.radio.fr/images/broadcasts/54/96/100369/3/c300.png"
+        logo: "https://www.radio.fr/images/broadcasts/54/96/100369/3/c300.png",
+        page: "https://ici.radio-canada.ca/ohdio/premiere/emissions/3479/en-direct"
     },
     
     {
         tuning: "100,1",
         name: "Rythme FM Mauricie (CJEB-FM)",
         url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CJEBFM_SC.aac",
-        logo: "https://cdn.cogecolive.com/websites-public/logo_rythme_mauricie_color_ripple.svg"
+        logo: "https://cdn.cogecolive.com/websites-public/logo_rythme_mauricie_color_ripple.svg",
+        page: "https://mauricie.rythmefm.com/"
     },
     {
         tuning: "102,3",
         name: "Energie Mauricie (Trois-Rivières) (CIGB-FM)",
         url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CIGBFM_ADP.aac",
-        logo: "https://www.radioenergie.ca/content/dam/audio/iheart-stations-logos/logo-nrj-mauricie.svg"
+        logo: "https://www.radioenergie.ca/content/dam/audio/iheart-stations-logos/logo-nrj-mauricie.svg",
+        page: "https://www.radioenergie.ca/mauricie.html"
     },
     {
         tuning: "104,3",
         name: "ICI Musique - Mauricie/Centre-du-Québec",
         url: "http://playerservices.streamtheworld.com/api/livestream-redirect/CBFXFM1_SRC.mp3",
-        logo: "https://th.bing.com/th/id/OIP.BLuaK5ii4mwKKJuGyTKh0gHaGW?w=185&h=180&c=7&r=0&o=5&pid=1.7"
+        logo: "https://th.bing.com/th/id/OIP.BLuaK5ii4mwKKJuGyTKh0gHaGW?w=185&h=180&c=7&r=0&o=5&pid=1.7",
+        page: "https://ici.radio-canada.ca/ohdio/musique"
     },
 ];
 const stationsOttawa = [
@@ -214,19 +240,22 @@ const stationsOttawa = [
         tuning: "91,5",
         name: "CBC Radio One - Ottawa",
         url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CBOFM_CBC.mp3",
-        logo: "https://cdn.onlineradiobox.com/img/l/1/11431.v10.png"
+        logo: "https://cdn.onlineradiobox.com/img/l/1/11431.v10.png",
+        page: "https://www.cbc.ca/lite/radio/live-radio/ottawa"
     },
     {
         tuning: "95,1",
         name: "ICI Radio-Canada Première Ottawa/Gatineau",
         url: "https://playerservices.streamtheworld.com/api/livestream-redirect/CBOFFM_SRC.mp3",
-        logo: "https://th.bing.com/th/id/OIP.xZ_FmjDL6mA5mecG5yMyRwHaFf?w=236&h=180&c=7&r=0&o=5&pid=1.7"
+        logo: "https://th.bing.com/th/id/OIP.xZ_FmjDL6mA5mecG5yMyRwHaFf?w=236&h=180&c=7&r=0&o=5&pid=1.7",
+        page: "https://ici.radio-canada.ca/ohdio/premiere?tz=EST"
     },
     {
         tuning: "102,5",
         name: "ICI Musique - Ottawa/Gatineau",
         url: " https://playerservices.streamtheworld.com/api/livestream-redirect/CBOXFM_SRC.mp3",
-        logo: "https://cdn.onlineradiobox.com/img/l/1/19341.v7.png"
+        logo: "https://cdn.onlineradiobox.com/img/l/1/19341.v7.png",
+        page: "https://ici.radio-canada.ca/ottawa-gatineau"
     },
 
     
@@ -366,11 +395,9 @@ function setActiveStation(index) {
     const stationLogo = document.getElementById('stationLogo');
     // Création de l'élément img avec lien cliquable
 stationLogo.innerHTML = `
-<a href="${stations[index].page}" target="_blank">
-    <img class="station-logo" style="background-color: #4000000;" 
-         src="${stations[index].logo}" 
-         alt="${stations[index].name}" 
-         title="${stations[index].name}">
+<a href="${stations[index].page}" target="_blank" class="station-link">
+    <img class="station-logo" src="${stations[index].logo}" alt="${stations[index].name}" title="Site officiel">
+       
 </a>
 `;
 
