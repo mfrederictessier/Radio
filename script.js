@@ -775,3 +775,13 @@ audioPlayer.addEventListener('volumechange', updateVolumeSlider);
 
 updateFrequencyDisplay();
 
+document.getElementById('infoButton').addEventListener('click', function () {
+    var bienvenue = document.getElementById('bienvenue');
+    if (bienvenue.style.display === 'none' || bienvenue.style.display === '') {
+        bienvenue.style.display = 'block';
+        
+    } else {
+        bienvenue.style.display = 'none';
+        
+    }
+});
